@@ -19,9 +19,21 @@ Page({
     login(this.launchCallback)
     // const countInfo =  await getLastCount()
     // this.launchCallback(countInfo)
+    tt.showToast({
+      title: "奖品准备中",
+      icon: 'loading',
+      duration: 5000
+    })
   },
 
   onShow() {
+    this.checkLeftTimes()
+  },
+
+  /**
+   * @description 验证是否还有抽奖机会
+   */
+  checkLeftTimes() {
     const left_times = this.data.left_times
     if (left_times) {
       this.tapStartAccelerometer()
@@ -32,18 +44,21 @@ Page({
    * @description 登录完成并获得剩余次数的回调
    * @param {Object} countInfo 
    */
-  async launchCallback() {
-    const countInfo = await API.lastCountApi()
-    console.log('开始回调', countInfo)
-    const {next_time, left_times, active} = countInfo
-    if (!active || !left_times) { // 活动未开启 or 抽奖机会已用完
-      this.setData({prize_info: {type: 3, next_time}})
-      console.log('打开result-win')
-      this.openResultWin()
-      return
-    }
-    this.setData({next_time, left_times})
-    this.openRuleWin()
+  launchCallback() {
+    console.log('开始回调')
+    tt.hideToast()
+    API.lastCountApi().then(countInfo => {
+      console.log('取到次数', countInfo)
+      const {next_time, left_times, active} = countInfo
+      if (!active || !left_times) { // 活动未开启 or 抽奖机会已用完
+        this.setData({prize_info: {type: 3, next_time}})
+        console.log('打开result-win')
+        this.openResultWin()
+        return
+      }
+      this.setData({next_time, left_times})
+      this.openRuleWin()
+    })
   },
 
   /**
@@ -142,16 +157,17 @@ Page({
    */
   cancelInfoWin(e) {
     this.setData({write_info: e.detail})
+    this.checkLeftTimes()
   },
 
   /**
    * @description 打开抽奖结果窗口
    */
   openResultWin(e) {
-    const { type } = e.currentTarget.dataset
-    this.setData({result_win: true, prize_info: {type: +type}})
+    // const { type } = e.currentTarget.dataset
+    // this.setData({result_win: true, prize_info: {type: +type}})
     // 以上为测试代码
-    // this.setData({result_win: true})
+    this.setData({result_win: true})
   },
 
   /**

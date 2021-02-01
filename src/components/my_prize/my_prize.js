@@ -38,19 +38,27 @@ Component({
       console.log('111', e)
       const { id } = e.currentTarget.dataset
       const find = this.data.prize.find(item => item.id === id)
-      if (find && find.status) {
-        console.log('信息已填写')
-        tt.showToast({
-          title: "奖品正在发出",
-          duration: 2000
-        });
-      } else {
-        console.log('record_id, 填信息', id)
-        this.setData({
-          record_id: id, 
-          write_info: true
-        })
-      }
+
+      // 测试内容start
+      this.setData({
+        record_id: id, 
+        write_info: true
+      })
+      // 测试内容end
+
+      // if (find && find.status) {
+      //   console.log('信息已填写')
+      //   tt.showToast({
+      //     title: "奖品正在发出",
+      //     duration: 2000
+      //   });
+      // } else {
+      //   console.log('record_id, 填信息', id)
+      //   this.setData({
+      //     record_id: id, 
+      //     write_info: true
+      //   })
+      // }
     },
 
     /**

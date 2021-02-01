@@ -1,8 +1,9 @@
 .index-bd {
   position: relative;
   width: 100vw;
-  height: auto;
-  background: #ccc;
+  height: 100vh;
+  /* background: #ffba00; */
+  background: #bb0e14 url('../../assets/global-bg.png') no-repeat;
 }
 .desc-image {
   display: block;
