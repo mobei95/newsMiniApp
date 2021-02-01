@@ -10,6 +10,29 @@ const setToken = function(token) {
 }
 
 /**
+ * @description 获取用户信息
+ */
+const getUserInfo = function() {
+  return new Promise((resolve, reject) => {
+    tt.getUserInfo({
+      success: result => {
+        console.log('用户信息', result)
+        resolve(result.userInfo)
+      },
+      fail: err => {
+        console.log('授权失败', err)
+        tt.exitMiniProgram({
+          complete: res => {
+            console.log('退出结果', res)
+          }
+        })
+        reject(err)
+      }
+    })
+  })
+}
+
+/**
  * @description 获取登录凭证
  */
 const getLoginCode = function(cb) {
@@ -20,6 +43,7 @@ const getLoginCode = function(cb) {
       console.log('拿到临时凭证', code)
       const result = await API.sendLoginCode({ code })
       console.log('token', result)
+      await getUserInfo()
       setToken(result.token)
       cb && cb()
     },
@@ -32,7 +56,6 @@ const getLoginCode = function(cb) {
     }
   });
 }
-
 
 export default function login(cb) {
   const token = getStorage('token')
