@@ -62,37 +62,39 @@
   color: #fff;
 }
 .cancel-icon-winning {
+  left: 50% !important;
   top: 1170rpx !important;
+  transform: translateX(-50%) !;
 }
 .result-nomore {
-  top: 800rpx;
+  top: 875rpx;
   text-align: center;
 }
 .result-nomore .next-time-tips {
   height: 38rpx;
   line-height: 38rpx;
-  font-size: 28rpx;
+  font-size: 29rpx;
   font-weight: 600;
   color: #fff;
 }
 .result-nomore .next-time {
-  height: 40rpx;
-  line-height: 40rpx;
+  height: 42rpx;
+  line-height: 42rpx;
   color: #ffed7d;
-  font-size: 30rpx;
+  font-size: 31rpx;
   font-weight: 600;
 }
 .result-nomore .attention-tips {
-  height: 40rpx;
-  line-height: 40rpx;
-  font-size: 28rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  font-size: 29rpx;
   color: #fff;
   font-weight: 600;
 }
 
 .last-times-tips {
   position: absolute;
-  top: 966rpx;
+  top: 1055rpx;
   left: 50%;
   transform: translateX(-50%);
   font-size: 30rpx;
@@ -104,22 +106,9 @@
 }
 .cancel-icon {
   position: absolute;
-  top: 966rpx;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 240rpx;
+  left: 602rpx;
+  /* transform: translateX(-50%); */
   border-radius: 50%;
   border: 1rpx solid #fffbff;
-}
-.cancel-btn {
-  position: absolute;
-  width: 73rpx;
-  height: 70rpx;
-  top: 961rpx;
-  left: 50%;
-  margin-left: -35rpx;
-  background: #f73d3e;
-  opacity: 0;
-}
-.thank-cancel {
-  top: 1020rpx !important;
 }

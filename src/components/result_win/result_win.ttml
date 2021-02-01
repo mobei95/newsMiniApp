@@ -23,7 +23,7 @@
         <!-- 剩余次数提醒 -->
         <view class="last-times-tips">您今天还剩<text>{{prizeInfo.left_times}}</text>次抽奖机会</view>
 
-        <icon class="cancel-icon thank-cancel" type="cancel" color="#fffbff" bindtap="cancelWin"></icon>
+        <icon class="cancel-icon" type="cancel" color="#fffbff" bindtap="cancelWin"></icon>
     </view>
     <!-- 提醒下一次 -->
     <view class="result-main" tt:if="{{prizeInfo.type === 3}}">
@@ -34,7 +34,7 @@
           <view class="attention-tips">请持续关注</view>
         </view>
 
-        <view class="cancel-btn" bindtap="cancelWin"></view>
+        <icon class="cancel-icon" type="cancel" color="#fffbff" bindtap="cancelWin"></icon>
     </view>
 
     
