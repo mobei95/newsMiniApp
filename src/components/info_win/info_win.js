@@ -88,7 +88,7 @@ Component({
     /**
      * @description 图片信息校验
      */
-    checkLocal() {
+    checkScreenshot() {
       if (!this.data.imgKey) {
         tt.showToast({
           title: '请上传截图',
@@ -122,7 +122,7 @@ Component({
     submit(e) {
       console.log('submit', e, this.data)
       const {name, mobile, address} = e.detail.value
-      if (this.checkName(name) && this.checkPhone(mobile) && this.checkLocal(address) && this.checkLocal()) {
+      if (this.checkName(name) && this.checkPhone(mobile) && this.checkLocal(address) && this.checkScreenshot()) {
         const { imgKey, record_id } = this.data
         API.submitInfoApi({name, mobile, address, screenshot: imgKey, record_id}).then(res => {
           console.log('信息提交成功', res)

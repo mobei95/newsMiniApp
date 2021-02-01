@@ -83,13 +83,20 @@
 }
 .info-content .info-form .info-form-upload .info-upload-pre {
   border: 1px solid #98979c;
+  box-sizing: border-box;
 }
 .info-content .info-form .info-form-upload .info-upload-tips {
   margin-left: 35rpx;
   font-size: 22rpx;
   color: #98979c;
 }
-
+.info-content .info-form .info-form-tips {
+  width: 370rpx;
+  margin: 40rpx auto 0;
+  line-height: 35rpx;
+  font-size: 22rpx;
+  color: #98979c;
+}
 .info-content .info-form .info-form-btn {
   width: 370rpx;
   height: 60rpx;

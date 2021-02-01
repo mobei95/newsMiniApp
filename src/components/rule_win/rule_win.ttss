@@ -20,8 +20,8 @@
   height: 46rpx;
 }
 .desc-image-last {
-  top: 1300rpx;
-  transform: rotateX(180deg);
+  top: 1302rpx;
+  /* transform: rotateX(180deg); */
   z-index: 1;
 }
 .cancel-icon {

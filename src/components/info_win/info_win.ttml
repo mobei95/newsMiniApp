@@ -39,8 +39,10 @@
             <view>官方抖音号截图</view>
           </view>
         </view>
+
+        <view class="info-form-tips">温馨提示：请认真填写有效地址信息，以免奖品无法寄达。</view>
         <button class="info-form-btn submit-btn" formType="submit">立即提交</button>
-        <button class="info-form-btn back-btn" bindtap="backVideo">返回新华社抖音官方账号</button>
+        <!-- <button class="info-form-btn back-btn" bindtap="backVideo">返回新华社抖音官方账号</button> -->
       </form>
     </view>
     

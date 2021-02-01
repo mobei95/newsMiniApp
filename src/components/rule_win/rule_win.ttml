@@ -1,7 +1,7 @@
 <view class="rule-win-bd" tt:if="{{visible}}">
   <view class="app-mask rule-win-mask">
     <image class="rule-win-desc-image" mode="widthFix" src="../../assets/rule-win-desc.png"></image>
-    <image class="rule-win-desc-image desc-image-last" mode="widthFix" src="../../assets/rule-win-desc.png"></image>
+    <image class="rule-win-desc-image desc-image-last" mode="widthFix" src="../../assets/rule-win-desc-bottom.png"></image>
     <image class="rule-win-bg-image" mode="widthFix" src="../../assets/rule-win-bg.png"></image>
   
     <icon class="cancel-icon" type="cancel" color="#fffbff" bindtap="cancelWin"></icon>
