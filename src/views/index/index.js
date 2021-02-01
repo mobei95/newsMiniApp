@@ -147,8 +147,11 @@ Page({
   /**
    * @description 打开抽奖结果窗口
    */
-  openResultWin() {
-    this.setData({result_win: true})
+  openResultWin(e) {
+    const { type } = e.currentTarget.dataset
+    this.setData({result_win: true, prize_info: {type: +type}})
+    // 以上为测试代码
+    // this.setData({result_win: true})
   },
 
   /**

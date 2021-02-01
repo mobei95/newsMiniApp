@@ -24,7 +24,7 @@
 .result-winning {
   display: flex;
   flex-direction: column;
-  top: 540rpx;
+  top: 620rpx;
   height: 355rpx;
 }
 .result-winning .prize-image {
@@ -38,14 +38,31 @@
   line-height: 33rpx;
   text-align: center;
   color: #f73d3e;
-  font-size: 21rpx;
+  font-size: 23rpx;
 }
 .result-winning .prize-name {
   height: 38rpx;
   line-height: 38rpx;
   text-align: center;
-  font-size: 24rpx;
+  font-size: 25rpx;
   color: #616161;
+}
+.to-write-info {
+  position: absolute;
+  top: 1075rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 438rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  letter-spacing: 1rpx;
+  text-align: center;
+  color: #fff;
+}
+.cancel-icon-winning {
+  top: 1170rpx !important;
 }
 .result-nomore {
   top: 800rpx;

@@ -4,12 +4,16 @@
     <view class="result-main" tt:if="{{prizeInfo.type === 1}}">
       <image class="result-main-bg" mode="widthFix" src="../../assets/winning.png"></image>
       <view class="result-main-content result-winning">
+        <!-- <image class="prize-image" mode="aspectFit" src="https://xhn.wihudong.com/awards/awards.png"></image>
+        <view class="winning-tips">恭喜你成功获得</view>
+        <view class="prize-name">这是测试用的名称这是测试用的名称这是测试用的名称</view> -->
+        <!-- 以上为测试 -->
         <image class="prize-image" mode="aspectFit" src="{{prizeInfo.award.thumbnail}}"></image>
         <view class="winning-tips">恭喜你成功获得</view>
         <view class="prize-name">{{prizeInfo.award.name}}</view>
       </view>
-
-      <icon class="cancel-icon" type="cancel" color="#fffbff" ></icon>
+      <view class="to-write-info" bindtap="cancelWin">填写信息</view>
+      <icon class="cancel-icon cancel-icon-winning" type="cancel" color="#fffbff" bindtap="cancelWin"></icon>
     </view>
     <!-- 未中奖 -->
     <view class="result-main" tt:if="{{prizeInfo.type === 2}}">
@@ -29,8 +33,10 @@
           <view class="next-time">2月11日 (大年) </view>
           <view class="attention-tips">请持续关注</view>
         </view>
+
+        <view class="cancel-btn" bindtap="cancelWin"></view>
     </view>
 
-    <view class="cancel-btn" bindtap="cancelWin"></view>
+    
   </view>
 </view>
