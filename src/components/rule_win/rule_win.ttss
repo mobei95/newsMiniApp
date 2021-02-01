@@ -1,0 +1,110 @@
+.rule-win-bd {
+  position: relative;
+  width: 100vw;
+  height: auto;
+}
+.rule-win-mask {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.rule-win-bg-image {
+  display: block;
+  width: 100%;
+}
+.rule-win-desc-image {
+  position: absolute;
+  top: 145rpx;
+  left: 225rpx;
+  width: 313rpx;
+  height: 46rpx;
+}
+.desc-image-last {
+  top: 1300rpx;
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+.cancel-icon {
+  position: absolute;
+  top: 140rpx;
+  right: 80rpx;
+  border: 1rpx solid #fffbff;
+  border-radius: 50%;
+}
+.rule-win-title {
+  display: block;
+  position: absolute;
+  top: 235rpx;
+  left: 238rpx;
+  width: 264rpx;
+  height: 82rpx;
+  z-index: 1;
+}
+.rule-contents {
+  position: absolute;
+  top: 310rpx;
+  left: 104rpx;
+  width: 545rpx;
+  color: #fff;
+  font-size: 16rpx;
+  line-height: 25rpx;
+}
+.rule-item {
+  margin-top: 2rpx;
+}
+.rule-item-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 40rpx;
+  font-size: 21rpx;
+  font-weight: 600;
+}
+.rule-item-title-icon {
+  width: 13rpx;
+  height: 13rpx;
+  margin-right: 10rpx;
+  background: #fff;
+  transform: rotate(45deg);
+}
+.rule-item-bd {
+  padding-left: 23rpx;
+  box-sizing: border-box;
+}
+.rule-item-bd .rule-item-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.rule-item-bd .rule-item-info .info-sort {
+  width: 15rpx;
+}
+.rule-item-bd .rule-item-table {
+  width: 472rpx;
+  padding: 4rpx;
+  padding-right: 2rpx;
+  box-sizing: border-box;
+  border-radius: 5rpx;
+  background: #fffadd;
+}
+.rule-item-bd .rule-item-table .rule-table-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.rule-item-bd .rule-item-table .row-first {
+  margin-bottom: 2rpx;
+}
+.rule-item-bd .rule-item-table .row-first view {
+  height: 35rpx !important;
+  line-height: 35rpx !important;
+}
+.rule-item-bd .rule-item-table .rule-table-row view {
+  flex: 1;
+  height: 42rpx;
+  line-height: 42rpx;
+  margin-right: 2rpx;
+  text-align: center;
+  border-radius: 5rpx;
+  background: #f14223;
+}

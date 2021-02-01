@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "rule-win": "../../components/rule_win/rule_win",
+    "info-win": "../../components/info_win/info_win",
+    "result-win": "../../components/result_win/result_win"
+  }
+}

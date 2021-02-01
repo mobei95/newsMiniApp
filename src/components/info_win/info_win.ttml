@@ -1,0 +1,49 @@
+<view class="info-win-bd" tt:if="{{visible}}">
+  <view class="app-mask info-win-mask">
+    <image class="info-bg-image" style="margin-top: {{imgMarTop}}px" mode="widthFix" src="../../assets/info-bg.png"></image>
+
+    <view class="info-content" style="top: {{contentTop}}px;">
+      <view class="info-head">上传信息领取好物</view>
+      <form class="info-form" catchsubmit="submit">
+        <!-- 姓名 -->
+        <view class="info-form-item">
+          <label>
+            <image class="info-item-icon" src="../../assets/user-icon.png"></image>
+            <view class="line"></view>
+            <input type="text" name="name" confirm-type="done" bindblur="checkParam" data-type="name" placeholder="姓名 (选填)" />
+          </label>
+        </view>
+        <!-- 手机号 -->
+        <view class="info-form-item">
+          <label>
+            <image class="info-item-icon" src="../../assets/phone-icon.png"></image>
+            <view class="line"></view>
+            <input type="number" name="mobile" confirm-type="done" bindblur="checkParam" data-type="phone" placeholder="请输入手机号" />
+          </label>
+        </view>
+        <!-- 地址 -->
+        <view class="info-form-item">
+          <label>
+              <image class="info-item-icon" src="../../assets/local-icon.png"></image>
+              <view class="line"></view>
+              <input type="textarea" name="address" confirm-type="done" bindblur="checkParam" data-type="phone" placeholder="请输入地址信息" />
+          </label>
+        </view>
+        <!-- 上传 -->
+        <view class="info-form-upload">
+            <!-- {{uploadImgSrc}} -->
+          <image tt:if="{{!imgKey}}" class="info-upload-icon" src="../../assets/add-icon.png" bindtap="uploadScreenshot"></image>
+          <image tt:else class="info-upload-icon info-upload-pre" mode="center" src="{{uploadImgSrc}}" bindtap="uploadScreenshot"></image>
+          <view class="info-upload-tips">
+            <view>上传关注新华社</view>
+            <view>官方抖音号截图</view>
+          </view>
+        </view>
+        <button class="info-form-btn submit-btn" formType="submit">立即提交</button>
+        <button class="info-form-btn back-btn" bindtap="backVideo">返回新华社抖音官方账号</button>
+      </form>
+    </view>
+    
+    <icon class="info-win-cancel-btn" style="top: {{cancelTop}}px" type="cancel" color="#fffbff" bindtap="cancelWin"></icon>
+  </view>
+</view>

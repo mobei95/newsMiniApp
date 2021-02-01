@@ -1,0 +1,108 @@
+.result-win-bd {
+  width: 100%;
+  height: 100%;
+}
+.result-win-mask {
+  position: relative;
+  height: auto;
+}
+.result-main {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.result-main-bg {
+  display: block;
+  width: 100%;
+}
+.result-main-content {
+  position: absolute;
+  left: 50%;
+  width: 374rpx;
+  margin-left: -187rpx;
+}
+.result-winning {
+  display: flex;
+  flex-direction: column;
+  top: 540rpx;
+  height: 355rpx;
+}
+.result-winning .prize-image {
+  display: block;
+  width: 100%;
+  height: 255rpx;
+}
+.result-winning .winning-tips {
+  margin-top: 18rpx;
+  height: 33rpx;
+  line-height: 33rpx;
+  text-align: center;
+  color: #f73d3e;
+  font-size: 21rpx;
+}
+.result-winning .prize-name {
+  height: 38rpx;
+  line-height: 38rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #616161;
+}
+.result-nomore {
+  top: 800rpx;
+  text-align: center;
+}
+.result-nomore .next-time-tips {
+  height: 38rpx;
+  line-height: 38rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #fff;
+}
+.result-nomore .next-time {
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #ffed7d;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.result-nomore .attention-tips {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: 600;
+}
+
+.last-times-tips {
+  position: absolute;
+  top: 966rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #fff;
+}
+.last-times-tips text {
+  color: #ffba00;
+}
+.cancel-icon {
+  position: absolute;
+  top: 966rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 1rpx solid #fffbff;
+}
+.cancel-btn {
+  position: absolute;
+  width: 73rpx;
+  height: 70rpx;
+  top: 961rpx;
+  left: 50%;
+  margin-left: -35rpx;
+  background: #f73d3e;
+  opacity: 0;
+}
+.thank-cancel {
+  top: 1020rpx !important;
+}

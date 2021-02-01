@@ -1,0 +1,46 @@
+<view class="rule-win-bd" tt:if="{{visible}}">
+  <view class="app-mask rule-win-mask">
+    <image class="rule-win-desc-image" mode="widthFix" src="../../assets/rule-win-desc.png"></image>
+    <image class="rule-win-desc-image desc-image-last" mode="widthFix" src="../../assets/rule-win-desc.png"></image>
+    <image class="rule-win-bg-image" mode="widthFix" src="../../assets/rule-win-bg.png"></image>
+  
+    <icon class="cancel-icon" type="cancel" color="#fffbff" bindtap="cancelWin"></icon>
+
+    <image class="rule-win-title" mode="widthFix" src="../../assets/rule-win-title.png"></image>
+
+    <view class="rule-contents">
+      <view class="rule-item" tt:for="{{ruleList}}">
+        <view class="rule-item-title">
+          <view class="rule-item-title-icon"></view>
+          <text>{{item.title}}</text>
+        </view>
+        <view class="rule-item-bd">
+            <block tt:if="{{!item.isTable}}">
+              <view class="rule-item-info" tt:for="{{item.contents}}" tt:for-index="conIndex" tt:for-item="rule">
+                <text tt:if="{{item.isSort}}" class="info-sort">{{conIndex + 1}}.</text>
+                <text>{{rule}}</text>
+              </view>
+            </block>
+            <block tt:else>
+              <view class="rule-item-table">
+                <view class="rule-table-row row-first">
+                  <view>2月04日</view>
+                  <view>2月11日</view>
+                  <view>2月12日</view>
+                  <view>2月16日</view>
+                  <view>2月18日</view>
+                </view>
+                <view class="rule-table-row">
+                  <view>小年</view>
+                  <view>大年</view>
+                  <view>初一</view>
+                  <view>初五</view>
+                  <view>初七</view>
+                </view>
+              </view>
+            </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

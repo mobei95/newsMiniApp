@@ -1,0 +1,27 @@
+<view class="index-bd">
+  <!-- 底色层 -->
+  <image class="desc-image" mode="widthFix" src="../../assets/color-bg.png"></image>
+  <!-- 手机层 -->
+  <image class="shake-image {{is_shake && 'shake-animation'}}" mode="widthFix" src="../../assets/shake.png"></image>
+  <!-- 背景层 -->
+  <image class="desc-image" mode="widthFix" src="../../assets/bg.png"></image>
+  <!-- 灯带层 -->
+  <image class="desc-image" mode="widthFix" src="../../assets/light.gif"></image>
+  <!-- 规则包 -->
+  <image class="rule-image" mode="widthFix" src="../../assets/rule.png" bindtap="toRulePage"></image>
+  <!-- 气球 -->
+  <image class="balloon-image" mode="widthFix" src="../../assets/balloon.png"></image>
+  <!-- 剩余次数提醒 -->
+  <view class="left-times-tips">您今天还剩<text>{{left_times}}</text>次抽奖机会</view>
+
+
+  <!-- <button bindtap="openResultWin">测试</button> -->
+
+
+  <!-- 规则阅读窗口 -->
+  <rule-win visible="{{rule_win}}" bindcancel="cancelRuleWin"></rule-win>
+  <!-- 信息填写窗口 -->
+  <info-win visible="{{write_info}}" record_id="{{prize_info.record_id}}" bindcancel="cancelInfoWin"></info-win>
+  <!-- 抽奖结果窗口 -->
+  <result-win visible="{{result_win}}" prizeInfo="{{prize_info}}" bindcancel="cancelResultWin"></result-win>
+</view>

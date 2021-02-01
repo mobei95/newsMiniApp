@@ -1,0 +1,51 @@
+.my-prize-main {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.prize-bd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.prize-time {
+  position: relative;
+  width: 100%;
+}
+.prize-bd-bg, .prize-time-bg {
+  display: block;
+  width: 100%;
+}
+.prize-bd-content, .prize-time-content {
+  position: absolute;
+  width: 100%;
+}
+.prize-bd-content {
+  top: 40rpx;
+}
+.prize-bd-content .prize-image {
+  display: block;
+  height: 216rpx;
+  margin: 0 auto;
+}
+.prize-bd-content .prize-name {
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  color: #d5442f;
+  text-align: center;
+}
+
+.prize-time-content {
+  top: 15rpx;
+  font-size: 26rpx;
+  color: #898989;
+  text-align: center;
+}
+.info-win {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+}

@@ -1,0 +1,36 @@
+<view class="result-win-bd" tt:if="{{visible}}">
+  <view class="app-mask result-win-mask">
+    <!-- 中奖 -->
+    <view class="result-main" tt:if="{{prizeInfo.type === 1}}">
+      <image class="result-main-bg" mode="widthFix" src="../../assets/winning.png"></image>
+      <view class="result-main-content result-winning">
+        <image class="prize-image" mode="aspectFit" src="{{prizeInfo.award.thumbnail}}"></image>
+        <view class="winning-tips">恭喜你成功获得</view>
+        <view class="prize-name">{{prizeInfo.award.name}}</view>
+      </view>
+
+      <icon class="cancel-icon" type="cancel" color="#fffbff" ></icon>
+    </view>
+    <!-- 未中奖 -->
+    <view class="result-main" tt:if="{{prizeInfo.type === 2}}">
+        <image class="result-main-bg" mode="widthFix" src="../../assets/thank.png"></image>
+        <view class="result-main-content"></view>
+
+        <!-- 剩余次数提醒 -->
+        <view class="last-times-tips">您今天还剩<text>{{prizeInfo.left_times}}</text>次抽奖机会</view>
+
+        <icon class="cancel-icon thank-cancel" type="cancel" color="#fffbff" bindtap="cancelWin"></icon>
+    </view>
+    <!-- 提醒下一次 -->
+    <view class="result-main" tt:if="{{prizeInfo.type === 3}}">
+        <image class="result-main-bg" mode="widthFix" src="../../assets/nomore.png"></image>
+        <view class="result-main-content result-nomore">
+          <view class="next-time-tips">下一轮次抽奖时间</view>
+          <view class="next-time">2月11日 (大年) </view>
+          <view class="attention-tips">请持续关注</view>
+        </view>
+    </view>
+
+    <view class="cancel-btn" bindtap="cancelWin"></view>
+  </view>
+</view>

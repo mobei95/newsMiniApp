@@ -1,0 +1,16 @@
+<view class="my-prize-main">
+  <view class="prizes" tt:for="{{prize}}" bindtap="toWriteInfo" data-id="{{item.id}}">
+    <view class="prize-bd">
+      <image class="prize-bd-bg" mode="widthFix" src="../../assets/my-prize-top.png"></image>
+      <view class="prize-bd-content">
+        <image class="prize-image" mode="aspectFit" src="{{item.thumbnail}}"></image>
+        <view class="prize-name">{{item.name}}</view>
+      </view>
+    </view>
+    <view class="prize-time">
+        <image class="prize-time-bg" mode="widthFix" src="../../assets/my-prize-bottom.png"></image>
+        <view class="prize-time-content">兑奖期限：{{item.timeLimit}}</view>
+    </view>
+  </view>
+</view>
+<info-win class="info-win" visible="{{write_info}}" record_id={{record_id}} bindcancel="cancelInfoWin"></info-win>

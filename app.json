@@ -1,0 +1,12 @@
+{
+  "pages":[
+    "src/views/index/index",
+    "src/views/rule/rule"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "新华社宠粉福利",
+    "navigationBarTextStyle":"black"
+  }
+}

@@ -1,0 +1,4 @@
+<view class="tab-bar-main">
+  <view class="tab {{currentKey === 1 && 'tab-active'}}" bindtap="touchTab" data-key="1">活动规则</view>
+  <view class="tab {{currentKey === 2 && 'tab-active'}}" bindtap="touchTab" data-key="2">我的奖品</view>
+</view>

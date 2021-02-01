@@ -1,0 +1,13 @@
+{
+    "setting": {
+        "autoCompile": true,
+        "es6": true,
+        "minified": false,
+        "mockUpdate": false,
+        "newFeature": false,
+        "postcss": false,
+        "urlCheck": false
+    },
+    "appid": "ttc831be8c570aa59f",
+    "projectname": "petFan"
+}

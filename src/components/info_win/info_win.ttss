@@ -1,0 +1,119 @@
+.info-win-bd {
+  width: 100vw;
+  height: auto;
+}
+.info-win-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding-top: 1rpx;
+  box-sizing: border-box;
+}
+.info-bg-image {
+  display: block;
+  width: 100%;
+  /* margin-top: 7vh; */
+}
+.info-content {
+  position: absolute;
+  /* top: 21vh; */
+  /* top: 268rpx; */
+  left: 50%;
+  width: 442rpx;
+  margin-left: -221rpx;
+}
+.info-content .info-head {
+  height: 58rpx;
+  line-height: 58rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+
+
+.info-content .info-form {
+  margin-top: 60rpx;
+}
+.info-content .info-form .info-form-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 70rpx;
+  padding: 0 14rpx;
+  box-sizing: border-box;
+  border-radius: 35rpx;
+  border: 1rpx solid #bcbcbc;
+  margin-bottom: 25rpx;
+}
+.info-content .info-form .info-form-item label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.info-content .info-form .info-form-item .info-item-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin: 0 12rpx;
+}
+.info-content .info-form .info-form-item .line {
+  width: 2rpx;
+  height: 26rpx;
+  margin: 0 5rpx;
+  background: #98979d;
+}
+.info-content .info-form .info-form-item input {
+  flex: 1;
+  padding-left: 12rpx;
+  font-size: 21rpx;
+}
+.info-content .info-form .info-form-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info-content .info-form .info-form-upload .info-upload-icon {
+  width: 109rpx;
+  height: 109rpx;
+}
+.info-content .info-form .info-form-upload .info-upload-pre {
+  border: 1px solid #98979c;
+}
+.info-content .info-form .info-form-upload .info-upload-tips {
+  margin-left: 35rpx;
+  font-size: 22rpx;
+  color: #98979c;
+}
+
+.info-content .info-form .info-form-btn {
+  width: 370rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  margin: 40rpx auto 0;
+  font-size: 27rpx;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(to bottom, #f5596e, #d91018);
+}
+.info-content .info-form .info-form-btn::after {
+  border: none !important;
+}
+.info-content .info-form .submit-btn {
+  margin-top: 50rpx;
+}
+
+.info-win-cancel-btn {
+  position: absolute;
+  top: 1090rpx;
+  left: 50%;
+  border-radius: 50%;
+  border: 1rpx solid #fffbff;
+  transform: translateX(-50%);
+}
