@@ -1,0 +1,57 @@
+.winning-list-main {
+  width: 100%;
+}
+.winning-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35rpx 0;
+  border-bottom: 1rpx solid #cfcece;
+}
+.winning-user .user-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+}
+.winning-user .user-info .user-avatar {
+  width: 115rpx;
+  height: 115rpx;
+  border: 8rpx solid #d2d2d2;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.winning-user .user-info .prize-info {
+  flex: 1;
+  margin-left: 25rpx;
+}
+.winning-user .user-info .prize-info .user-name {
+  width: 370rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 29rpx;
+  color: #cc7260;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.winning-user .user-info .prize-info .prize-name {
+  width: 370rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 21rpx;
+  color: #898989;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.winning-user .winning-time {
+  margin-left: 25rpx;
+}
+.winning-user .winning-time view {
+  height: 32rpx;
+  line-height: 32rpx;
+  font-size: 17rpx;
+  color: #898989;
+  text-align: justify
+}

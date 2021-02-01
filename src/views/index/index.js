@@ -1,8 +1,10 @@
 import Shake from '../../common/shake'
 import login from '../../common/login'
 import { throttle } from '../../utils/util'
+import { getStorage } from '../../utils/storage';
 // import API from '../../service/api'
-const {API, getLastCount, globalData} = getApp()
+const APP = getApp()
+const {API, getLastCount, globalData} = APP
 
 Page({
   data: {
@@ -12,18 +14,24 @@ Page({
     next_time: null,  // 下次活动时间
     left_times: null, // 剩余抽奖次数
     prize_info: {}, // 奖品信息
-    is_shake: false // 是否在摇一摇
+    is_shake: false // 是否在摇一摇，控制摇一摇动画
   },
   onLoad: async function () {
     console.log('Welcome to Mini Code')
-    login(this.launchCallback)
-    // const countInfo =  await getLastCount()
-    // this.launchCallback(countInfo)
     tt.showToast({
       title: "奖品准备中",
       icon: 'loading',
       duration: 5000
     })
+    const token = getStorage('token')
+    if (token) {
+      this.launchCallback()
+    } else {
+      APP.appReadyCallback = () => {
+        console.log('callback')
+        this.launchCallback()
+      }
+    }
   },
 
   onShow() {
@@ -57,31 +65,9 @@ Page({
         return
       }
       this.setData({next_time, left_times})
-      this.openRuleWin()
-    })
-  },
-
-  /**
-   * @description 打开规则窗口
-   */
-  openRuleWin() {
-    this.setData({rule_win: true})
-    this.stopShake()
-  },
-
-  /**
-   * @description 关闭规则窗口
-   */
-  cancelRuleWin(e) {
-    this.setData({rule_win: e.detail})
-    const { left_times, next_time } = this.data
-    console.log('left_times', left_times)
-    if (left_times) {  // 规则窗口关闭，且还有剩余抽奖机会，开始监听速度感应器
+      // 准备完毕，打开重力感应器
       this.tapStartAccelerometer()
-    } else {
-      this.setData({prize_info: {type: 3, next_time}})
-      this.openResultWin()
-    }
+    })
   },
 
   /**
@@ -95,7 +81,6 @@ Page({
       startCb: this.startShake,
       endCb: this.startLottery
     })
-    console.log('startShake', result)
   },
 
   /**

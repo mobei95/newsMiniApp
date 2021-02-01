@@ -22,7 +22,7 @@ class UploadFile {
    */
   async init() {
     const uptoken = await this.getToken()
-    console.log('uptoken', uptoken)
+    // console.log('uptoken', uptoken)
     const options = {
       region: 'SCN',
       uptoken,

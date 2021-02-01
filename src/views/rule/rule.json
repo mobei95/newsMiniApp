@@ -2,6 +2,7 @@
   "usingComponents": {
     "tab-bar": "../../components/tab_bar/tab_bar",
     "my-prize": "../../components/my_prize/my_prize",
-    "rule-page": "../../components/rule_page/rule_page"
+    "rule-page": "../../components/rule_page/rule_page",
+    "winning-list": "../../components/winning_list/winning_list"
   }
 }

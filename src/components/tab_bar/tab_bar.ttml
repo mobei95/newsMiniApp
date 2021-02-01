@@ -1,4 +1,5 @@
 <view class="tab-bar-main">
-  <view class="tab {{currentKey === 1 && 'tab-active'}}" bindtap="touchTab" data-key="1">活动规则</view>
+  <view class="tab {{currentKey === 1 && 'tab-active'}}" bindtap="touchTab" data-key="1">抽奖说明</view>
   <view class="tab {{currentKey === 2 && 'tab-active'}}" bindtap="touchTab" data-key="2">我的奖品</view>
+  <view class="tab {{currentKey === 3 && 'tab-active'}}" bindtap="touchTab" data-key="3">中奖公示</view>
 </view>

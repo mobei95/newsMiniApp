@@ -1,0 +1,18 @@
+<view class="winning-list-main">
+  <scroll-view scroll-y="true" scroll-with-animation="{{true}}">
+    <view class="winning-user">
+      <view class="user-info">
+        <image class="user-avatar" src="../../assets/bg.png"></image>
+        <view class="prize-info">
+          <view class="user-name">用户名称测试中长度看看溢出测试</view>
+          <view class="prize-name">奖品名称测试中看看长度够不够</view>
+        </view>
+      </view>
+      <view class="winning-time">
+        <view>2021/02/04</view>
+        <view>18 : 20 : 35</view>
+      </view>
+    </view>
+  </scroll-view>
+  
+</view>
