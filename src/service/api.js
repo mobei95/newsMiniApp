@@ -21,5 +21,5 @@ export default {
   myPrize: () => post('/activity/awards/my'),
 
   // 中奖名单
-  winningListApi: params => get('/activity/awards/top', params)
+  winningListApi: params => post('/activity/awards/top', params)
 }

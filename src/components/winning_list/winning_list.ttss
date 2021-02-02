@@ -26,7 +26,7 @@
   margin-left: 25rpx;
 }
 .winning-user .user-info .prize-info .user-name {
-  width: 370rpx;
+  width: 360rpx;
   height: 45rpx;
   line-height: 45rpx;
   font-size: 29rpx;
@@ -36,7 +36,7 @@
   text-overflow: ellipsis;
 }
 .winning-user .user-info .prize-info .prize-name {
-  width: 370rpx;
+  width: 360rpx;
   height: 40rpx;
   line-height: 40rpx;
   font-size: 21rpx;
@@ -54,4 +54,14 @@
   font-size: 17rpx;
   color: #898989;
   text-align: justify
+}
+
+.data-over-tips {
+  text-align: center;
+  height: 35rpx;
+  line-height: 35rpx;
+  margin-top: 10rpx;
+  padding-bottom: 10rpx;
+  font-size: 25rpx;
+  color: #898989;
 }

@@ -27,7 +27,7 @@ export const throttle = function(callback, wait) {
  * @param {String} value 时间字符串
  * */
 export const formatTime = function(value) {
-  const date = new Date(value)
+  const date = typeof value === 'number' ? new Date(value) : new Date(value.replace(/\-/g,'/'))
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
@@ -40,5 +40,5 @@ export const formatTime = function(value) {
     return n[1] ? n : `0${n}`
   }
 
-  return `${[year, month, day].map(formatNumber).join('.')}`
+  return `${[year, month, day].map(formatNumber).join('.')} ${[hour, minute, second].map(formatNumber).join(':')}`
 }

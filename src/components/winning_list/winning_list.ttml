@@ -1,18 +1,20 @@
-<view class="winning-list-main">
-  <scroll-view scroll-y="true" scroll-with-animation="{{true}}">
-    <view class="winning-user" tt:for="{{10}}">
+<view class="winning-list-main" style="height: 100%;">
+  <scroll-view scroll-y="true" scroll-with-animation="{{true}}" style="height: 100%;" bindscrolltolower="scrollOver">
+    <view class="winning-user" tt:for="{{winiingList}}">
       <view class="user-info">
-        <image class="user-avatar" src="../../assets/bg.png"></image>
+        <image class="user-avatar" mode="aspectFit" src="{{item.avatar || '../../assets/default-avatar.jpg'}}"></image>
         <view class="prize-info">
-          <view class="user-name">用户名称测试中长度看看溢出测试</view>
-          <view class="prize-name">奖品名称测试中看看长度够不够</view>
+          <view class="user-name">{{item.nickname || '可爱用户'}}</view>
+          <view class="prize-name">{{item.name}}</view>
         </view>
       </view>
       <view class="winning-time">
-        <view>2021/02/04</view>
-        <view>18 : 20 : 35</view>
+        <view>{{item.date}}</view>
+        <view>{{item.time}}</view>
       </view>
     </view>
+    <view class="data-over-tips" tt:if="{{!isMore}}">已经到底了~</view>
+    <view class="data-over-tips" tt:if="{{isLoading}}">努力加载中~</view>
   </scroll-view>
   
 </view>

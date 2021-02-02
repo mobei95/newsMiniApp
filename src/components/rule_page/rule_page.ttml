@@ -1,35 +1,37 @@
-<view class="compont-rule-page">
-  <view class="rule-contents">
-    <view class="rule-item" tt:for="{{ruleList}}">
-      <view class="rule-item-title">
-        <text>{{item.title}}</text>
-      </view>
-      <view class="rule-item-bd">
-          <block tt:if="{{!item.isTable}}">
-            <view class="rule-item-info" tt:for="{{item.contents}}" tt:for-index="conIndex" tt:for-item="rule">
-              <text tt:if="{{item.isSort}}" class="info-sort">{{conIndex + 1}}.</text>
-              <text>{{rule}}</text>
-            </view>
-          </block>
-          <block tt:else>
-            <view class="rule-item-table">
-              <view class="rule-table-row row-first">
-                <view style="background: linear-gradient(to right, #e68950, #df7f4d)">2月04日</view>
-                <view style="background: linear-gradient(to right, #e1804b, #d8754c)">2月11日</view>
-                <view style="background: linear-gradient(to right, #d9734b, #d4644c)">2月12日</view>
-                <view style="background: linear-gradient(to right, #d2624c, #cf5747)">2月16日</view>
-                <view style="background: linear-gradient(to right, #cf564d, #cb5049)">2月18日</view>
+<view class="compont-rule-page" style="height: 100%;">
+  <scroll-view scroll-y="true" scroll-with-animation="{{true}}" style="height: 100%;">
+    <view class="rule-contents">
+      <view class="rule-item" tt:for="{{ruleList}}">
+        <view class="rule-item-title">
+          <text>{{item.title}}</text>
+        </view>
+        <view class="rule-item-bd">
+            <block tt:if="{{!item.isTable}}">
+              <view class="rule-item-info" tt:for="{{item.contents}}" tt:for-index="conIndex" tt:for-item="rule">
+                <text tt:if="{{item.isSort}}" class="info-sort">{{conIndex + 1}}.</text>
+                <text>{{rule}}</text>
               </view>
-              <view class="rule-table-row">
-                <view style="background: linear-gradient(to right, #e68950, #df7f4d)">小年</view>
-                <view style="background: linear-gradient(to right, #e1804b, #d8754c)">大年</view>
-                <view style="background: linear-gradient(to right, #d9734b, #d4644c)">初一</view>
-                <view style="background: linear-gradient(to right, #d2624c, #cf5747)">初五</view>
-                <view style="background: linear-gradient(to right, #cf564d, #cb5049)">初七</view>
+            </block>
+            <block tt:else>
+              <view class="rule-item-table">
+                <view class="rule-table-row row-first">
+                  <view style="background: linear-gradient(to right, #e68950, #df7f4d)">2月04日</view>
+                  <view style="background: linear-gradient(to right, #e1804b, #d8754c)">2月11日</view>
+                  <view style="background: linear-gradient(to right, #d9734b, #d4644c)">2月12日</view>
+                  <view style="background: linear-gradient(to right, #d2624c, #cf5747)">2月16日</view>
+                  <view style="background: linear-gradient(to right, #cf564d, #cb5049)">2月18日</view>
+                </view>
+                <view class="rule-table-row">
+                  <view style="background: linear-gradient(to right, #e68950, #df7f4d)">小年</view>
+                  <view style="background: linear-gradient(to right, #e1804b, #d8754c)">大年</view>
+                  <view style="background: linear-gradient(to right, #d9734b, #d4644c)">初一</view>
+                  <view style="background: linear-gradient(to right, #d2624c, #cf5747)">初五</view>
+                  <view style="background: linear-gradient(to right, #cf564d, #cb5049)">初七</view>
+                </view>
               </view>
-            </view>
-          </block>
+            </block>
+        </view>
       </view>
     </view>
-  </view>
+  </scroll-view>
 </view>

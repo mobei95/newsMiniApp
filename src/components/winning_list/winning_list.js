@@ -3,25 +3,54 @@ const { API, globalData } = getApp()
 Component({
   properties: {},
   data: {
-    scrollHeight: null,
+    page: 1,
+    page_size: 20,
+    total: 0,
+    winiingList: [],
+    isMore: false,
+    isLoading: false
   },
   attached() {
-    API.winningListApi()
+    console.log('attached')
+    this.setData({isLoading: true})
+    this.getWinningHistory()
   },
-  ready() {
-    console.log('ready')
-    const { windowHeight, pixelRatio } = globalData.systemInfo
-    const rpxHeight = windowHeight * pixelRatio 
-    const query = tt.createSelectorQuery()
-    query.select('.rule-page-head').boundingClientRect()
-    query.exec(res => {
-      const headHeight = res[0].height * pixelRatio
-      const scrollHeight = rpxHeight - headHeight - 44 - 60 - 70
-      console.log('rpxHeight', rpxHeight, headHeight)
-      console.log('contentRef', scrollHeight)
-      this.setData({scrollHeight})
-    })
-    
-  },
-  methods: {}
+  methods: {
+    /**
+     * @description 获取中奖记录
+     */
+    async getWinningHistory() {
+      const { page, page_size, winiingList } = this.data
+      API.winningListApi({page, page_size}).then(result => {
+        const { data, total } = result
+        const isMore = page < Math.ceil(total / page_size)
+        let newWiniingList = data.map(item => {
+          const timeArr = formatTime(item.created_at).split(' ')
+          item.date = timeArr[0]
+          item.time = timeArr[1]
+          return item
+        })
+        this.setData({
+          winiingList: [...winiingList, ...newWiniingList],
+          total, 
+          isMore,
+          isLoading: false
+        })
+      }).catch(err => {
+
+      })
+    },
+
+    /**
+     * @description 滚动条触底
+     */
+    scrollOver(e) {
+      console.log('到底了', e, this.data.isMore)
+      let { isMore, page } = this.data
+      if (isMore) {
+        this.setData({page: ++page, isLoading: true})
+        this.getWinningHistory()
+      }
+    }
+  }
 })

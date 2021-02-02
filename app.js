@@ -17,8 +17,9 @@ App({
     const { pixelRatio, windowHeight, windowWidth } = nativeSystemInfo
     const baseVh = windowHeight / 100
     const baseVw = windowWidth / 100
-    const baseRpx = windowWidth / 750 
-    globalData.systemInfo = {pixelRatio, windowHeight, windowWidth, baseVh, baseVw, baseRpx}
+    const baseRpx = windowWidth / 750 // 得到1rpx对应的px
+    const basePx = 750 / windowWidth // 得到1px对应的rpx
+    globalData.systemInfo = {pixelRatio, windowHeight, windowWidth, baseVh, baseVw, baseRpx, basePx}
   },
 
   globalData,

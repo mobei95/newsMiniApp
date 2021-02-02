@@ -5,28 +5,24 @@ Component({
   data: {
     write_info: false,
     record_id: '',
-    prize: [
-      {
-        id: 1,
-        name: '巴黎欧莱雅（美礼专列）',
-        thumbnail: 'http://qnmbgor40.hn-bkt.clouddn.com/awards/air-speaker.png',
-        status: 0
-      }
-    ]
+    prize: []
   },
   attached() {
-    console.log('getApp()')
-    API.myPrize().then(res => {
-      console.log('res', res)
-      let prize = res.map(item => {
-        const startDay = formatTime(item.created_at)
-        const endDay = formatTime(new Date(item.created_at).getTime() + 1000 * 60 * 60 * 24)
+    API.myPrize().then(result => {
+      console.log('res111', result)
+      let prize = result.map(item => {
+        const createdAt = item.created_at.replace(/\-/g, '/')
+        const startDay = formatTime(createdAt).split(' ')[0]
+        const endTime = new Date(createdAt).getTime() + (1000 * 60 * 60 * 24)
+        const endDay = formatTime(endTime).split(' ')[0]
         item.timeLimit = `${startDay}至${endDay}`
         return item
       })
       this.setData({
-        prize: res
+        prize
       })
+    }).catch(err => {
+      console.log('err', err)
     })
   },
   methods: {
@@ -46,7 +42,7 @@ Component({
       // })
       // 测试内容end
 
-      if (find && find.status) {
+      if (find && find.status && find.status < 3) {
         console.log('信息已填写')
         tt.showToast({
           title: "奖品正在发出",
@@ -54,10 +50,20 @@ Component({
         });
       } else {
         console.log('record_id, 填信息', id)
-        this.setData({
-          record_id: id, 
-          write_info: true
-        })
+        const maxTime = new Date(find.created_at.replace(/\-/g, '/').getTime() + (1000 * 60 * 60 * 24)).getTime() // 过期时间
+        const currentTime = new Date().getTime()
+        if (currentTime >= maxTime || find.status >= 3) {
+          tt.showToast({
+            title: "奖品已过期",
+            icon: 'fail',
+            duration: 2000
+          });
+        } else {
+          this.setData({
+            record_id: id, 
+            write_info: true
+          })
+        }
       }
     },
 
