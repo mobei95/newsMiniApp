@@ -184,9 +184,10 @@ Page({
   /**
    * 去规则页面
    */
-  toRulePage() {
+  toRulePage(e) {
+    const { type } = e.currentTarget.dataset
     tt.navigateTo({
-      url: '/src/views/rule/rule'
+      url: `/src/views/rule/rule?type=${type}`
     })
   },
 

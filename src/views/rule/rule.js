@@ -4,8 +4,10 @@ Page({
   data: {
     currentTab: 1
   },
-  onLoad: function() {
-    console.log('welcome rule page')
+  onLoad: function(option) {
+    const { type } = option
+    this.setData({currentTab: +type})
+    console.log('welcome rule page', option)
   },
   /**
    * @description 切换tab

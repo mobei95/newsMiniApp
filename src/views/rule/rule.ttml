@@ -1,7 +1,7 @@
 <view class="rule-page">
   <image class="rule-page-head" mode="widthFix" src="../../assets/head.png"></image>
   <view class="rule-page-main">
-    <tab-bar bindchange="tabChange"></tab-bar>
+    <tab-bar currentKey="{{currentTab}}" bindchange="tabChange"></tab-bar>
     <view class="tab-content">
       <rule-page hidden="{{currentTab !== 1}}"></rule-page>
       <my-prize hidden="{{currentTab !== 2}}"></my-prize>

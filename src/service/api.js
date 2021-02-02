@@ -18,5 +18,8 @@ export default {
   submitInfoApi: params => post('/activity/address/fill', params),
   
   // 查询我的奖品
-  myPrize: () => post('/activity/awards/my')
+  myPrize: () => post('/activity/awards/my'),
+
+  // 中奖名单
+  winningListApi: params => get('/activity/awards/top', params)
 }

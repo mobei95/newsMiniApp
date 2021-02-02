@@ -5,14 +5,13 @@ Component({
   data: {
     scrollHeight: null,
   },
-  attached() {},
+  attached() {
+    API.winningListApi()
+  },
   ready() {
     console.log('ready')
     const { windowHeight, pixelRatio } = globalData.systemInfo
-    const rpxHeight = windowHeight * pixelRatio
-
-
-    // 
+    const rpxHeight = windowHeight * pixelRatio 
     const query = tt.createSelectorQuery()
     query.select('.rule-page-head').boundingClientRect()
     query.exec(res => {

@@ -1,7 +1,12 @@
 Component({
-  properties: {},
+  properties: {
+    currentKey: {
+      type: Number,
+      default: 1
+    }
+  },
   data: {
-    currentKey: 1
+    // currentKey: 1
   },
   methods: {
     /**

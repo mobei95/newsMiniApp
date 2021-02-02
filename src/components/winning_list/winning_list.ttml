@@ -1,6 +1,6 @@
 <view class="winning-list-main">
   <scroll-view scroll-y="true" scroll-with-animation="{{true}}">
-    <view class="winning-user">
+    <view class="winning-user" tt:for="{{10}}">
       <view class="user-info">
         <image class="user-avatar" src="../../assets/bg.png"></image>
         <view class="prize-info">

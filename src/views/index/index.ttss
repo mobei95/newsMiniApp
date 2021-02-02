@@ -15,15 +15,14 @@
 .shake-image {
   display: block;
   position: absolute;
-  left: 197rpx;
-  top: 560rpx;
+  left: 210rpx;
+  top: 580rpx;
   width: 360rpx;
   height: 360rpx;
-  transform-origin: 85% 95%;
+  transform-origin: 85% 100%;
+  animation: shakeRotate 3s linear 1s infinite;
 }
-.shake-animation {
-  animation: shakeRotate 1s linear infinite;
-}
+
 .rule-image {
   display: block;
   position: absolute;
@@ -33,6 +32,20 @@
   height: 145rpx;
   animation: ruleImage 1.5s linear infinite;
 }
+
+.lottery-rule {
+  position: absolute;
+  top: 43rpx;
+  right: 20rpx;
+  width: 160rpx;
+}
+.lottery-query {
+  position: absolute;
+  top: 111rpx;
+  right: 20rpx;
+  width: 160rpx;
+}
+
 .balloon-image {
   display: block;
   position: absolute;
@@ -44,7 +57,7 @@
 }
 .left-times-tips {
   position: absolute;
-  top: 1300rpx;
+  top: 1330rpx;
   left: 50%;
   transform: translateX(-50%);
   font-size: 27rpx;
@@ -57,8 +70,23 @@
   0%{
     transform: rotate(0)
   }
+  10%{
+    transform: rotate(-15deg)
+  }
+  20%{
+    transform: rotate(0)
+  }
+  30%{
+    transform: rotate(-15deg)
+  }
+  40%{
+    transform: rotate(0)
+  }
   50%{
     transform: rotate(-15deg)
+  }
+  60%{
+    transform: rotate(0)
   }
   100%{
     transform: rotate(0)
