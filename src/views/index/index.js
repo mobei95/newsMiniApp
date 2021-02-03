@@ -58,15 +58,42 @@ Page({
     API.lastCountApi().then(countInfo => {
       console.log('取到次数', countInfo)
       const {next_time, left_times, active} = countInfo
-      if (!active || !left_times) { // 活动未开启 or 抽奖机会已用完
-        this.setData({prize_info: {type: 3, next_time}})
-        console.log('打开result-win')
-        this.openResultWin()
+      if (!active) {
+        console.log('进入open')
+        this.openModal(next_time)
         return
       }
+      // if (!left_times) { // 抽奖机会已用完
+      //   this.setData({prize_info: {type: 3, next_time}})
+      //   console.log('打开result-win')
+      //   this.openResultWin()
+      //   return
+      // }
       this.setData({next_time, left_times})
       // 准备完毕，打开重力感应器
       this.tapStartAccelerometer()
+    })
+  },
+
+  /**
+   * @description 活动未开启的modal
+   */
+  openModal(next_time) {
+    tt.showModal({
+      title: '活动暂未开启',
+      content: `下轮活动开启时间：${next_time}`,
+      confirmText: '下轮再来',
+      showCancel: false,
+      success: res => {
+        tt.exitMiniProgram({
+          complete: res => {
+            console.log('退出结果', res)
+          }
+        })
+      },
+      fail(err) {
+        console.log(`showModal 调用失败`, err);
+      }
     })
   },
 
@@ -75,12 +102,24 @@ Page({
    */
   async tapStartAccelerometer() {
     console.log('开始监听摇一摇', this)
-    const shake = new Shake()
-    let result = await shake.startShake()
-    result && shake.onShake({
-      startCb: this.startShake,
-      endCb: this.startLottery
-    })
+    const { left_times, next_time } = this.data
+    if (left_times) {
+      console.log('还有机会')
+      const shake = new Shake()
+      let result = await shake.startShake()
+      result && shake.onShake({
+        startCb: this.startShake,
+        endCb: this.startLottery
+      })
+    } else {
+      console.log('没有机会了')
+      const { prize_info } = this.data
+      prize_info.type = 3
+      prize_info.next_time = next_time
+      this.setData({prize_info})
+      this.openResultWin()
+    }
+    
   },
 
   /**
@@ -105,12 +144,7 @@ Page({
         next_time,
         record_id
       }
-      if (!win && !left_times) {
-        prize_info.type = 3
-      } else {
-        // prize_info.type = 2
-        prize_info.type = win ? 1 : 2
-      }
+      prize_info.type = win ? 1 : 2
       console.log('抽奖结果', result)
       this.setData({
         prize_info,
@@ -168,7 +202,7 @@ Page({
     }
     if (!left_times && prize_info.type === 2) { // 从未中奖窗口关闭但没有抽奖机会
       let prize_info = this.data.prize_info
-      prize_info = 3
+      prize_info.type = 3
       this.setData({prize_info})
       this.openResultWin()
       return
