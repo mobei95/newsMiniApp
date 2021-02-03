@@ -30,7 +30,7 @@
         <image class="result-main-bg" mode="widthFix" src="../../assets/nomore.png"></image>
         <view class="result-main-content result-nomore">
           <view class="next-time-tips">下一轮次抽奖时间</view>
-          <view class="next-time">2月11日 (大年) </view>
+          <view class="next-time">{{prizeInfo.next_time}}</view>
           <view class="attention-tips">请持续关注</view>
         </view>
 

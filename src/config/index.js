@@ -1,3 +1,3 @@
-export const baseURL = 'http://api.wihudong.com'
+export const baseURL = 'https://api.wihudong.com'
 
 export const fileHost = 'https://xhn.wihudong.com/'
