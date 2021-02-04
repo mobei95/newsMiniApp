@@ -131,6 +131,9 @@ Component({
             icon: 'success',
             duration: 2000
           })
+          tt.navigateTo({
+            url: `/src/views/index/index`
+          })
         })
       }
     },

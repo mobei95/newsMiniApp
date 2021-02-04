@@ -236,12 +236,31 @@ Page({
     })
   },
 
+  /**
+   * @description 页面分享
+   */
+  onShareAppMessage() {
+    return {
+      title: '戳这里 领取新华社宠粉福利！',
+      desc: '新华社“不打烊的中国年”，正在宠粉，快来抽大奖吧！',
+      path: '/src/views/index',
+      imageUrl: '/src/assets/share.jpg',
+      success: () => {
+        console.log('转发调起')
+      },
+      fail: err => {
+        console('转发调起失败', err)
+      }
+    }
+  },
+
+
   onHide() {
     console.log('hide')
     this.stopShake()
   },
 
   onUnload() {
-    console.log('onUnload')
+    console.log('onUnload')``
   }
 })

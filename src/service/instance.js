@@ -10,11 +10,15 @@ class Instance {
     }
   }
 
+  
   request({method, uri, data, header = this.header}) {
     const token = getStorage('token')
+    console.log('token', token)
     if (token) {
       header['authorization'] = `Bearer ${token}`
     }
+    console.log('baseURL', baseURL)
+    console.log('请求路径', `${this.baseURL}${uri}`)
     return new Promise((resolve, reject) => {
       tt.request({
         url: isHttp(uri) ? uri : `${this.baseURL}${uri}`,
@@ -23,7 +27,9 @@ class Instance {
         dataType: "JSON",
         data,
         success: (res) => {
+          
           const { statusCode, data } = res
+          console.log('请求结果', data, res)
           const response = JSON.parse(data)
           if (response.code === 0) {
             resolve(response.data)
