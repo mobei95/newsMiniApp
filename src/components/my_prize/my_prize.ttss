@@ -1,4 +1,4 @@
-.my-prize-main {
+6.my-prize-main {
   position: relative;
   width: 100%;
   height: auto;
@@ -35,6 +35,21 @@
   font-size: 30rpx;
   color: #d5442f;
   text-align: center;
+}
+.prize-btn {
+  width: 370rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 30rxp;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 30rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  background-image: linear-gradient(to bottom, #e9e7e8, #d2d2d2);
+}
+.prize-btn-active {
+  background-image: linear-gradient(to bottom, #f65a6f, #d91016);
 }
 
 .prize-time-content {

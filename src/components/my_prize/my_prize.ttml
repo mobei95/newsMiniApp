@@ -12,6 +12,7 @@
           <image class="prize-time-bg" mode="widthFix" src="../../assets/my-prize-bottom.png"></image>
           <view class="prize-time-content">兑奖期限：{{item.timeLimit}}</view>
       </view>
+      <view class="prize-btn {{item.status}}">信息已填写</view>
     </view>
   </scroll-view>
 </view>
