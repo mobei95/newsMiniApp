@@ -52,7 +52,7 @@ Component({
         console.log('record_id, 填信息', id, )
         const createTime = new Date(find.created_at.replace(/\-/g, '/')).getTime()
         console.log('newDate', createTime)
-        const maxTime = new Date(createTime + (1000 * 60 * 60 * 24)).getTime() // 过期时间
+        const maxTime = new Date(createTime + (1000 * 60 * 60 * 48)).getTime() // 过期时间48小时
         console.log('maxTime', maxTime)
         const currentTime = new Date().getTime()
         if (currentTime >= maxTime || find.status >= 3) {
