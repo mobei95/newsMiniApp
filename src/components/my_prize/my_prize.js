@@ -49,8 +49,11 @@ Component({
           duration: 2000
         });
       } else {
-        console.log('record_id, 填信息', id)
-        const maxTime = new Date(find.created_at.replace(/\-/g, '/').getTime() + (1000 * 60 * 60 * 24)).getTime() // 过期时间
+        console.log('record_id, 填信息', id, )
+        const createTime = new Date(find.created_at.replace(/\-/g, '/')).getTime()
+        console.log('newDate', createTime)
+        const maxTime = new Date(createTime + (1000 * 60 * 60 * 48)).getTime() // 过期时间48小时
+        console.log('maxTime', maxTime)
         const currentTime = new Date().getTime()
         if (currentTime >= maxTime || find.status >= 3) {
           tt.showToast({
@@ -59,6 +62,7 @@ Component({
             duration: 2000
           });
         } else {
+          console.log('校验成功')
           this.setData({
             record_id: id, 
             write_info: true

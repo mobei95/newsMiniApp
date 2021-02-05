@@ -9,6 +9,7 @@ let APP = null
  * @param {String} token
  */
 const setToken = function(token) {
+  console.log('token', token)
   setStorage('token', token)
 }
 

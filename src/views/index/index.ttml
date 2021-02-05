@@ -19,8 +19,8 @@
   <view class="left-times-tips">您今天还剩<text>{{left_times}}</text>次抽奖机会</view>
 
 
-  <!-- <button bindtap="openResultWin" data-type="1" style="position: absolute;top: 0;left: 0;">测试中奖</button>
-  <button bindtap="openResultWin" data-type="2" style="position: absolute;top: 200rpx;left: 0;">测试未中奖</button>
+  <!-- <button bindtap="openResultWin" data-type="1" style="position: absolute;top: 0;left: 0;">测试中奖</button> -->
+  <!-- <button bindtap="openResultWin" data-type="2" style="position: absolute;top: 200rpx;left: 0;">测试未中奖</button>
   <button bindtap="openResultWin" data-type="3" style="position: absolute;top: 400rpx;left: 0;">测试没有机会</button> -->
 
 
