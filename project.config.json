@@ -6,7 +6,7 @@
         "mockUpdate": false,
         "newFeature": false,
         "postcss": false,
-        "urlCheck": true
+        "urlCheck": false
     },
     "appid": "ttc831be8c570aa59f",
     "projectname": "petFan"

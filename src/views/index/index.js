@@ -8,16 +8,17 @@ const {API, getLastCount, globalData} = APP
 
 Page({
   data: {
-    rule_win: false,
+    // rule_win: false,
     write_info: false,
     result_win: false,
     next_time: null,  // 下次活动时间
     left_times: null, // 剩余抽奖次数
+    active: false, // 活动是否开启
     prize_info: {}, // 奖品信息
-    is_shake: false // 是否在摇一摇，控制摇一摇动画
+    // is_shake: false // 是否在摇一摇，控制摇一摇动画
   },
   onLoad: async function () {
-    console.log('Welcome to Mini Code')
+    console.log('Welcome index page')
     tt.showToast({
       title: "奖品准备中",
       icon: 'loading',
@@ -55,24 +56,50 @@ Page({
   launchCallback() {
     console.log('开始回调')
     tt.hideToast()
-    API.lastCountApi().then(countInfo => {
-      console.log('取到次数', countInfo)
-      const {next_time, left_times, active} = countInfo
-      if (!active) {
-        console.log('进入open')
-        this.openModal(next_time)
-        return
-      }
-      // if (!left_times) { // 抽奖机会已用完
-      //   this.setData({prize_info: {type: 3, next_time}})
-      //   console.log('打开result-win')
-      //   this.openResultWin()
-      //   return
-      // }
-      this.setData({next_time, left_times})
-      // 准备完毕，打开重力感应器
-      this.tapStartAccelerometer()
+    const prizeInfo = API.myPrize().then() 
+    const countInfo = API.lastCountApi().then()
+
+    Promise.all([prizeInfo, countInfo]).then(res => {
+      this.setCountInfo()
+      this.checkPrizeStatus()
     })
+    
+    
+
+
+
+
+    
+  },
+
+  /**
+   * @description 验证奖品状态
+   */
+  checkPrizeStatus() {
+    API.myPrize.then(result => {
+      const prizeInfo = result[0]
+      if (prizeInfo && !prizeInfo.status) { // 有奖品但还没有填写奖品信息
+        this.setData({prize_info: prizeInfo})
+        this.openInfoWin()
+      } else {  // 没有奖品或奖品信息已填写
+        const { active } = this.data
+        if (!active) {
+          console.log('活动未开启，打开modal')
+          this.openModal(next_time)
+          return
+        }
+        // 准备完毕，打开重力感应器
+        this.tapStartAccelerometer()
+      }
+    })
+  },
+
+  /**
+   * @description 设置次数信息
+   */
+  setCountInfo(countInfo) {
+    const {next_time, left_times, active} = countInfo
+    this.setData({next_time, left_times, active})
   },
 
   /**
@@ -81,7 +108,7 @@ Page({
   openModal(next_time) {
     tt.showModal({
       title: '活动暂未开启',
-      content: `下轮活动开启时间：${next_time}`,
+      content: `下轮活动开启时间：${next_time} 10:00`,
       confirmText: '下轮再来',
       showCancel: false,
       success: res => {
@@ -104,7 +131,7 @@ Page({
     console.log('开始监听摇一摇', this)
     const { left_times, next_time } = this.data
     if (left_times) {
-      console.log('还有机会')
+      console.log('还有机会，可以继续摇')
       const shake = new Shake()
       let result = await shake.startShake()
       result && shake.onShake({
@@ -112,7 +139,7 @@ Page({
         endCb: this.startLottery
       })
     } else {
-      console.log('没有机会了')
+      console.log('没有机会了，不能再摇了')
       const { prize_info } = this.data
       prize_info.type = 3
       prize_info.next_time = next_time
@@ -138,14 +165,8 @@ Page({
     API.lotteryApi().then(result => {
       console.log('抽奖结果', result)
       const { award, left_times, next_time, record_id, win } = result
-      let prize_info = {
-        award,
-        left_times,
-        next_time,
-        record_id
-      }
+      let prize_info = {award, left_times, next_time, record_id}
       prize_info.type = win ? 1 : 2
-      console.log('抽奖结果', result)
       this.setData({
         prize_info,
         left_times,
