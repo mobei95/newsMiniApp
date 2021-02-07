@@ -8,10 +8,10 @@
           <view class="prize-name">{{item.name}}</view>
         </view>
       </view>
-      <view class="winning-time">
+      <!-- <view class="winning-time">
         <view>{{item.date}}</view>
         <view>{{item.time}}</view>
-      </view>
+      </view> -->
     </view>
     <view class="data-over-tips" tt:if="{{!isMore}}">已经到底了~</view>
     <view class="data-over-tips" tt:if="{{isLoading}}">努力加载中~</view>

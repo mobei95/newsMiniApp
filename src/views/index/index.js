@@ -56,42 +56,16 @@ Page({
   launchCallback() {
     console.log('开始回调')
     tt.hideToast()
-    const prizeInfo = API.myPrize().then() 
+    const prizeInfo = API.myPrize().then()
     const countInfo = API.lastCountApi().then()
 
     Promise.all([prizeInfo, countInfo]).then(res => {
-      this.setCountInfo()
-      this.checkPrizeStatus()
-    })
-    
-    
-
-
-
-
-    
-  },
-
-  /**
-   * @description 验证奖品状态
-   */
-  checkPrizeStatus() {
-    API.myPrize.then(result => {
-      const prizeInfo = result[0]
-      if (prizeInfo && !prizeInfo.status) { // 有奖品但还没有填写奖品信息
-        this.setData({prize_info: prizeInfo})
-        this.openInfoWin()
-      } else {  // 没有奖品或奖品信息已填写
-        const { active } = this.data
-        if (!active) {
-          console.log('活动未开启，打开modal')
-          this.openModal(next_time)
-          return
-        }
-        // 准备完毕，打开重力感应器
-        this.tapStartAccelerometer()
-      }
-    })
+      console.log('res', res)
+      const prizeInfo = res[0].find(item => item.status === 0)
+      const countInfo = res[1]
+      this.setCountInfo(countInfo)
+      this.checkPrizeStatus(prizeInfo)
+    }) 
   },
 
   /**
@@ -100,6 +74,27 @@ Page({
   setCountInfo(countInfo) {
     const {next_time, left_times, active} = countInfo
     this.setData({next_time, left_times, active})
+    console.log('信息设置完成')
+  },
+
+  /**
+   * @description 验证奖品状态
+   */
+  checkPrizeStatus(prizeInfo) {
+    console.log('开始验证奖品状态', prizeInfo)
+    if (prizeInfo && !prizeInfo.status) { // 有奖品但还没有填写奖品信息
+      this.setData({prize_info: {...prizeInfo, record_id: prizeInfo.id}})
+      this.openInfoWin()
+    } else {  // 没有奖品或奖品信息已填写
+      const { active } = this.data
+      if (!active) {
+        console.log('活动未开启，打开modal')
+        this.openModal(this.data.next_time)
+        return
+      }
+      // 准备完毕，打开重力感应器
+      this.tapStartAccelerometer()
+    }
   },
 
   /**
@@ -197,7 +192,13 @@ Page({
    */
   cancelInfoWin(e) {
     this.setData({write_info: e.detail})
-    this.checkLeftTimes()
+    const active = this.data.active
+    if (!active) {
+      this.openModal()
+    } else {
+      this.checkLeftTimes()
+    }
+    
   },
 
   /**
@@ -282,6 +283,6 @@ Page({
   },
 
   onUnload() {
-    console.log('onUnload')``
+    console.log('onUnload')
   }
 })

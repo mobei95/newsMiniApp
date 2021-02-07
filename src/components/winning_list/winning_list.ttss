@@ -26,7 +26,7 @@
   margin-left: 25rpx;
 }
 .winning-user .user-info .prize-info .user-name {
-  width: 360rpx;
+  width: 100%;
   height: 45rpx;
   line-height: 45rpx;
   font-size: 29rpx;
@@ -36,7 +36,7 @@
   text-overflow: ellipsis;
 }
 .winning-user .user-info .prize-info .prize-name {
-  width: 360rpx;
+  width: 100%;
   height: 40rpx;
   line-height: 40rpx;
   font-size: 21rpx;
