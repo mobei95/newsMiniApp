@@ -11,13 +11,11 @@ Component({
     API.myPrize().then(result => {
       console.log('res111', result)
       let prize = result.map(item => {
-        const createdAt = item.created_at.replace(/\-/g, '/')
-        const startDay = formatTime(createdAt).split(' ')[0]
-        const endTime = new Date(createdAt).getTime() + (1000 * 60 * 60 * 24)
-        const endDay = formatTime(endTime).split(' ')[0]
-        item.timeLimit = `${startDay}至${endDay}`
+        item.timeLimit = `${item.receive_start.replace(/\-/g, '/')}至${item.receive_end.replace(/\-/g, '/')}`
+        item.statusTxt = item.status ? item.status === 3 ? '奖品已过期' : '信息已填写' : '填写收件信息'
         return item
       })
+      console.log('prize', prize)
       this.setData({
         prize
       })
@@ -31,9 +29,15 @@ Component({
      * @param {Object} e 事件对象
      */
     toWriteInfo(e) {
-      console.log('111', e)
-      const { id } = e.currentTarget.dataset
-      const find = this.data.prize.find(item => item.id === id)
+      const { id, type } = e.currentTarget.dataset
+      console.log('111', e, type)
+      if (type) {
+        this.setData({
+          record_id: id, 
+          write_info: true
+        })
+      }
+      // const find = this.data.prize.find(item => item.id === id)
 
       // 测试内容start
       // this.setData({
@@ -42,33 +46,33 @@ Component({
       // })
       // 测试内容end
 
-      if (find && find.status && find.status < 3) {
-        console.log('信息已填写')
-        tt.showToast({
-          title: "奖品正在发出",
-          duration: 2000
-        });
-      } else {
-        console.log('record_id, 填信息', id, )
-        const createTime = new Date(find.created_at.replace(/\-/g, '/')).getTime()
-        console.log('newDate', createTime)
-        const maxTime = new Date(createTime + (1000 * 60 * 60 * 48)).getTime() // 过期时间48小时
-        console.log('maxTime', maxTime)
-        const currentTime = new Date().getTime()
-        if (currentTime >= maxTime || find.status >= 3) {
-          tt.showToast({
-            title: "奖品已过期",
-            icon: 'fail',
-            duration: 2000
-          });
-        } else {
-          console.log('校验成功')
-          this.setData({
-            record_id: id, 
-            write_info: true
-          })
-        }
-      }
+      // if (find && find.status && find.status < 3) {
+      //   console.log('信息已填写')
+      //   tt.showToast({
+      //     title: "奖品正在发出",
+      //     duration: 2000
+      //   });
+      // } else {
+      //   console.log('record_id, 填信息', id, )
+      //   const createTime = new Date(find.created_at.replace(/\-/g, '/')).getTime()
+      //   console.log('newDate', createTime)
+      //   const maxTime = new Date(createTime + (1000 * 60 * 60 * 48)).getTime() // 过期时间48小时
+      //   console.log('maxTime', maxTime)
+      //   const currentTime = new Date().getTime()
+      //   if (currentTime >= maxTime || find.status >= 3) {
+      //     tt.showToast({
+      //       title: "奖品已过期",
+      //       icon: 'fail',
+      //       duration: 2000
+      //     });
+      //   } else {
+      //     console.log('校验成功')
+      //     this.setData({
+      //       record_id: id, 
+      //       write_info: true
+      //     })
+      //   }
+      // }
     },
 
     /**
