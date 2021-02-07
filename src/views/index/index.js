@@ -112,11 +112,11 @@ Page({
       confirmText: '下轮再来',
       showCancel: false,
       success: res => {
-        tt.exitMiniProgram({
-          complete: res => {
-            console.log('退出结果', res)
-          }
-        })
+        // tt.exitMiniProgram({
+        //   complete: res => {
+        //     console.log('退出结果', res)
+        //   }
+        // })
       },
       fail(err) {
         console.log(`showModal 调用失败`, err);
