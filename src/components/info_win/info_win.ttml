@@ -30,10 +30,10 @@
           </label>
         </view>
         <!-- 上传 -->
-        <view class="info-form-upload">
+        <view class="info-form-upload" bindtap="uploadScreenshot">
             <!-- {{uploadImgSrc}} -->
-          <image tt:if="{{!imgKey}}" class="info-upload-icon" src="../../assets/add-icon.png" bindtap="uploadScreenshot"></image>
-          <image tt:else class="info-upload-icon info-upload-pre" mode="center" src="{{uploadImgSrc}}" bindtap="uploadScreenshot"></image>
+          <image tt:if="{{!imgKey}}" class="info-upload-icon" src="../../assets/add-icon.png" ></image>
+          <image tt:else class="info-upload-icon info-upload-pre" mode="center" src="{{uploadImgSrc}}"></image>
           <view class="info-upload-tips">
             <view>上传关注新华社</view>
             <view>官方抖音号截图</view>

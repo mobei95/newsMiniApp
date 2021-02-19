@@ -1,4 +1,5 @@
-6.my-prize-main {
+
+.my-prize-main {
   position: relative;
   width: 100%;
   height: auto;
@@ -60,6 +61,17 @@
   color: #898989;
   text-align: center;
 }
+
+.prize-no-tips {
+  text-align: center;
+  height: 45rpx;
+  line-height: 45rpx;
+  margin-top: 10rpx;
+  padding-bottom: 10rpx;
+  font-size: 25rpx;
+  color: #898989;
+}
+
 .info-win {
   position: absolute;
   top: 0;

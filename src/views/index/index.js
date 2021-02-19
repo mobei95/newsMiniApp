@@ -65,7 +65,13 @@ Page({
       const countInfo = res[1]
       this.setCountInfo(countInfo)
       this.checkPrizeStatus(prizeInfo)
-    }) 
+    }).catch(err => {
+      tt.showToast({
+        title: '服务器开小差啦',
+        icon: 'fail',
+        duration: 2000
+      })
+    })
   },
 
   /**

@@ -1,19 +1,22 @@
 <view class="my-prize-main" style="height: 100%;">
   <scroll-view scroll-y="true" scroll-with-animation="{{true}}" style="height: 100%;">
-    <view class="prizes" tt:for="{{prize}}" >
-      <view class="prize-bd">
-        <image class="prize-bd-bg" mode="widthFix" src="../../assets/my-prize-top.png"></image>
-        <view class="prize-bd-content">
-          <image class="prize-image" mode="aspectFit" src="{{item.thumbnail}}"></image>
-          <view class="prize-name">{{item.name}}</view>
+    <block tt:if="{{prize.length}}">
+      <view class="prizes" tt:for="{{prize}}" >
+        <view class="prize-bd">
+          <image class="prize-bd-bg" mode="widthFix" src="../../assets/my-prize-top.png"></image>
+          <view class="prize-bd-content">
+            <image class="prize-image" mode="aspectFit" src="{{item.thumbnail}}"></image>
+            <view class="prize-name">{{item.name}}</view>
+          </view>
         </view>
+        <view class="prize-time">
+            <image class="prize-time-bg" mode="widthFix" src="../../assets/my-prize-bottom.png"></image>
+            <view class="prize-time-content">兑奖期限：{{item.timeLimit}}</view>
+        </view>
+        <view class="prize-btn {{!item.status && 'prize-btn-active'}}" data-id="{{item.id}}" data-type="{{!item.status}}" bindtap="toWriteInfo">{{item.statusTxt}}</view>
       </view>
-      <view class="prize-time">
-          <image class="prize-time-bg" mode="widthFix" src="../../assets/my-prize-bottom.png"></image>
-          <view class="prize-time-content">兑奖期限：{{item.timeLimit}}</view>
-      </view>
-      <view class="prize-btn {{!item.status && 'prize-btn-active'}}" data-id="{{item.id}}" data-type="{{!item.status}}" bindtap="toWriteInfo">{{item.statusTxt}}</view>
-    </view>
+    </block>
+    <view tt:else class="prize-no-tips">还没有抽到奖品哦</view>
   </scroll-view>
 </view>
 <info-win class="info-win" visible="{{write_info}}" record_id={{record_id}} bindcancel="cancelInfoWin"></info-win>

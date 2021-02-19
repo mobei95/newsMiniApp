@@ -21,6 +21,11 @@ Component({
       })
     }).catch(err => {
       console.log('err', err)
+      tt.showToast({
+        title: '服务器开小差啦',
+        icon: 'fail',
+        duration: 2000
+      })
     })
   },
   methods: {

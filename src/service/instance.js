@@ -17,7 +17,7 @@ class Instance {
     if (token) {
       header['authorization'] = `Bearer ${token}`
     }
-    console.log('baseURL', baseURL)
+    // console.log('baseURL', baseURL)
     console.log('请求路径', `${this.baseURL}${uri}`)
     return new Promise((resolve, reject) => {
       tt.request({
